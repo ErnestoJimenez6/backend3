@@ -1,5 +1,4 @@
 import express from 'express';
-import connectDB from './config/db.js';
 import mocksRouter from './routes/mocks.router.js';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
@@ -14,6 +13,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT||8080;
+const connection = mongoose.connect(process.env.MONGO_URI)
 
 connectDB();
 
